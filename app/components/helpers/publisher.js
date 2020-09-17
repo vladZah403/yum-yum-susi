@@ -17,7 +17,7 @@ export default class Publisher{
 
         this.events[eventName].forEach(func => func(data));
 
-        console.log(this, eventName, date)
+        console.log(this, eventName, data)
     }
 
     get methods(){

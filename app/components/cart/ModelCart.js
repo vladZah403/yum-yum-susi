@@ -22,7 +22,28 @@ export default class ModelCart{
         return sum
     }
     getCartProdId(){
-        return ([...this.cart.keys()]);
+        return[...this.cart.keys()];
 
+    }
+    updeteProds(prods){
+        let Prise = 0;
+        const products = prods.map(prod => {
+            prod.Count = this.cart.get(prod.id);
+            Prise += prod.Count*prod.Prise;
+            return prod;
+        });
+
+        this.cartProducts = products 
+
+        return{
+            Prise,
+            products
+        }
+    }
+    clearCart(){
+        this.cart.clear()
+    }
+    getCartProducts(){
+        return this.cartProducts
     }
 }
